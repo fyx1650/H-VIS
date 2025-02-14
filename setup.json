@@ -1,0 +1,74 @@
+{
+  "BasicInfo": {
+    "seed": 0,
+    "input_dim": 3,
+    "max_epochs": 10,
+    "init_lr": 5e-4,
+    "num_samples": 100000,
+    "batch_size": 5000,
+    "batch_num": 500,
+    "iter": 1,
+    "grid_res": 256
+  },
+  "Loss": {
+    "coef_mnfld": 200,
+    "coef_nonmnfld": 0,
+    "coef_near": 0,
+    "coef_ms": 4,
+    "coef_alpha": 10,
+    "coef_normal": 0,
+    "coef_eikonal": 5,
+    "coef_proportion": 1,
+    "coef_vis": 1,
+    "coef_div": 1,
+    "coef_project": 0,
+    "coef_vis_down_type": "pow_full",
+    "coef_div_down_type": "pow_full",
+    "digs_para": [1, 1e-4, 1e-5],
+    "minsurf_mnfld": true,
+    "minsurf_near": true,
+    "minsurf_far": true,
+    "E_contain_mnfld": true,
+    "E_contain_near": true,
+    "E_contain_far": true,
+    "div_contain_mnfld": true,
+    "div_contain_near": true,
+    "div_contain_far": true,
+    "with_normal": false,
+    "clip_grad_norm": false
+  },
+  "TPBEncoder": {
+    "grid_type": ["hash", "dense"],
+    "b_order": 4,
+    "num_levels": 7,
+    "level_dim": 4,
+    "init_level": 15,
+    "base_resolution": 16,
+    "desired_resolution": 1024,
+    "per_level_scale": 2,
+    "log2_hashmap_size": 19,
+    "align_corners": false,
+    "model_scale": 1.0,
+    "space_scale": 1.1
+  },
+
+  "MLP": {
+    "hidden_dim": 64,
+    "num_layers": 3,
+    "need_bias": true,
+    "activation": "sine",
+    "skips": [],
+    "geometric_init": false,
+    "geo_radius_init": 0.0,
+    "clip_sdf": null,
+    "weight_norm": false
+  },
+
+  "SIREN": {
+    "decoder_hidden_dim": 256,
+    "nl": "sine",
+    "decoder_n_hidden_layers": 4,
+    "init_type": "siren",
+    "sphere_init_params": [1.6, 0.1]
+  }
+}

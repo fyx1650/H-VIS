@@ -1,0 +1,14 @@
+matplotlib==3.6.1
+numpy==1.23.4
+open3d==0.16.0
+packaging==23.1
+plotly==5.13.0
+requests==2.28.1
+PyMCubes==0.1.4
+pysdf==0.1.8
+rich==12.6.0
+scipy==1.9.3
+tensorboardX==2.5.1
+torch_ema==0.3
+tqdm==4.64.1
+trimesh==3.15.3
