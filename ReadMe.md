@@ -18,7 +18,7 @@ conda install pytorch==1.13.1 torchvision==0.14.1 torchaudio==0.13.1 pytorch-cud
 pip install -r requirements.txt
 pip install -U kaleido
 ```
-### Install pytorch3d
+### Install pytorch3d (optional)
 *Note that without this package, you can still run our experiment only if you don't add "--online_sampling" in 2d case 
 or add "project" in "--second_order" (Of course, both of these are unrelated to the experiment in our paper)*
 
@@ -31,15 +31,23 @@ are two guides in English and Chinese.
 
 2.https://zhuanlan.zhihu.com/p/609391678
 
+## Data
+### Single model: 
+we provide three 3D models and the points sample from their surfaces:
+992113 (ABC), Armadillo (Famous), Screw (Real Scan). (*ps. the ground truth model of Screw is
+dense point cloud.*)
+### Dataset:
+*ABC, Thingi10k, Famous* : follow the way provided in [point2surf](https://github.com/ErlerPhilipp/points2surf)
+
 ## Run
-Single model
+### Single model
 ```
 python main_sdf.py --local_rank
 0
 --pts_path
-data/armadillo/armadillo_1e5.ply
+data/Armadillo/Armadillo_pts.ply
 --mesh_path
-data/armadillo/armadillo.ply
+data/Armadillo/Armadillo_gt.ply
 --workspace
 SDF_armadillo
 --encoding
@@ -55,8 +63,9 @@ l1
 vis
 hessian
 ```
-Dataset (make sure your dataset contains the "testset.txt" file which records all the names of ply files and replace the
-```$DATASET_NAME$``` and ```$DATASET_DIR$``` with the name and local path of your dataset.) 
+### Dataset 
+*make sure your dataset contains the "testset.txt" file which records all the names of ply files and replace the
+```$DATASET_NAME$``` and ```$DATASET_DIR$``` with the name and local path of your dataset.*
 ```
 python test_on_dataset.py 
 --local_rank
