@@ -42,7 +42,8 @@ dense point cloud.*)
 ## Run
 ### Single model
 ```
-python main_sdf.py --local_rank
+python main_sdf.py 
+--local_rank
 0
 --pts_path
 data/Armadillo/Armadillo_pts.ply
@@ -130,28 +131,57 @@ hessian
 *seed*: random seed<br>
 *input_dim*: length of input vector(1,2 or 3)<br>
 *max_epochs*: the number of total epochs<br>
-*init_lr*: initial learning rate<br>
+*init_lr*: the initial learning rate<br>
 *num_samples*: the number of sampling points (only used for 1d, 2d and online_sampling 3d cases)<br>
 *batch_size*: the number of points for per batch<br>
-*iter*: the number of iterations for update the parameters of network (you can set it larger than 1 and lower the batch_size 
+*iter*: the number of iterations for updating the parameters of network (you can set it larger than 1 and lower the batch_size 
 when the memory is not enough)<br>
 *grid_res*: resolution of Marching Cube algorithm<br>
 ### Loss
+*coef_mnfld*: coefficient of the data term<br>
+*coef_minsurf*: coefficient of the minimal surface term<br>
+*coef_alpha*: parameter inside the minimal surface term<br>
+*coef_eikonal*: coefficient of the eikonal and the viscosity term<br>
+*coef_vis*: the initial coefficient of the laplacian trem inside the viscosity term<br>
+*coef_div*: the initial coefficient of the hessian term<br>
 *coef_div_down_type*: choose from "remain" (keep same), "digs" (down linearly and piecewisely) and "pow_full" (down exponentially)<br>
 *coef_vis_down_type*: Same as above<br>
 *digs_para*: the knot for "digs" down type<br>
-### GridEncoder
-*grid_type*: choose from "hash" (using hash table), "dense" (not using hash table)
-*b-order*: B-spline degree + 1
+*minsurf_mnfld*: whether contains points sampled from the surface when calculating
+the minimal surface term<br>
+*minsurf_near*: whether contains points sampled near the surface when calculating
+the minimal surface term<br>
+*minsurf_nonmnfld*: whether contains points sampled from the bounding box when calculating
+the minimal surface term<br>
+*E_contain_mnfld*: whether contains points sampled from the surface when calculating
+the eikonal term<br>
+*E_contain_near*: whether contains points sampled near the surface when calculating
+the eikonal term<br>
+*E_contain_nonmnfld*: whether contains points sampled from the bounding box when calculating
+the eikonal term<br>
+*div_contain_mnfld*: whether contains points sampled from the surface when calculating
+the second order term (viscosity and hessian)<br>
+*div_contain_near*: whether contains points sampled near the surface when calculating
+the second order term<br>
+*div_contain_nonmnfld*: whether contains points sampled from the bounding box when calculating
+the second order term<br>
+
+(*ps: In calculating the viscosity term, we utilized the intermediate results 
+from the computation of the eikonal term, so if the "div_..." is set as true, 
+the corresponding "E_..." should be set as true either.*)
+### TPBEncoder
+*grid_type*: choose from "hash" (using hash table), "dense" (not using hash table)<br>
+*b-order*: B-spline degree + 1<br>
 *num_levels*: levels of tensor product B-spline encoder<br>
 *level_dim*: dimension of coefficient vector<br>
 *base_resolution*: the number of B-spline basis of the first level - the degeree of B-spline (4 for 1d,2d and 16 for 3d)<br>
 *desired_resolution*: the number of B-spline basis of the last level - the degeree of B-spline (256 for 1d, 2d and 1024 for 3d)<br>
-*per_level_scale*: the resolution scaling factor between adjacent layers(
-This option will be disabled once the desired_resolution and num_levels are set, the defalut is 2)<br>
+*per_level_scale*: the resolution scaling factor between adjacent layers (This option will be disabled once the desired_resolution and num_levels are set, the defalut is 2)<br>
 *log2_hashmap_size*: the result of taking the log base 2 of the maximum size of hash table<br>
-*model_scale*: the radius of bounding box of model
-*space_scale*: the radius of bounding box of uniformed sampling points
+*model_scale*: the radius of bounding box of model<br>
+*space_scale*: the radius of bounding box of uniformed sampling points<br>
+### MLP
+*activation*: choose from "sine", "relu", "softplus", "tanh"<br>
 
 # Acknowledgements
 This code is referenced on [torch-ngp](https://github.com/ashawkey/torch-ngp), [POCO](https://github.com/valeoai/POCO) 

@@ -156,7 +156,6 @@ if __name__ == '__main__':
                    ]
     filelists_3 = [
                    'Liberty',
-                   'armadillo'
                    ]
     filelists_4 = ['00017012_cd8dbafbc2a3422eb55090d7_trimesh_000']
 
