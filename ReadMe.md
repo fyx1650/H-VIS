@@ -26,7 +26,9 @@ We use pytorch3d package for calculating the charmfer distance between two point
 be cauculated using scipy package, if you want to add it into your loss function or calculate it in per batch,
 pytorch3d may be a better choice. Unfortunately, installing this package on Windows is a little complicated, the folowing
 are two guides in English and Chinese.
+
 1.https://github.com/facebookresearch/pytorch3d/blob/main/INSTALL.md
+
 2.https://zhuanlan.zhihu.com/p/609391678
 
 ## Run
@@ -54,7 +56,7 @@ vis
 hessian
 ```
 Dataset (make sure your dataset contains the "testset.txt" file which records all the names of ply files and replace the
-$DATASET_NAME$ and $DATASET_DIR$ with the name and local path of your dataset.) 
+```$DATASET_NAME$``` and ```$DATASET_DIR$``` with the name and local path of your dataset.) 
 ```
 python test_on_dataset.py 
 --local_rank
