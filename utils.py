@@ -182,7 +182,7 @@ def map_curvature_to_color(cur, vertices):
         v_rgba[idx_3[0], 1] = 1.0
         v_rgba[idx_3[0], 2] = 0.0
     idx_4 = np.where((cur > cur_knots[3]) & (cur <= cur_knots[4]))
-    if len(idx_0[0]) != 0:
+    if len(idx_4[0]) != 0:
         v_rgba[idx_4[0], 0] = 1.0
         v_rgba[idx_4[0], 1] = 1.0 - (cur[idx_4[0]] - cur_knots[3]) / (cur_knots[4] - cur_knots[3])
         v_rgba[idx_4[0], 2] = 0.0
