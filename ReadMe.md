@@ -134,6 +134,7 @@ hessian
 *init_lr*: the initial learning rate<br>
 *num_samples*: the number of sampling points (only used for 1d, 2d and online_sampling 3d cases)<br>
 *batch_size*: the number of points for per batch<br>
+*batch_num*: the number of iterations for each epoch<br>
 *iter*: the number of iterations for updating the parameters of network (you can set it larger than 1 and lower the batch_size 
 when the memory is not enough)<br>
 *grid_res*: resolution of Marching Cube algorithm<br>
