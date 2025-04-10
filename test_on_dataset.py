@@ -133,7 +133,7 @@ if __name__ == '__main__':
         mesh_path = load_path + '/03_meshes/' + file + '.ply'
         save_path = load_path + '/04_pts_ply_test/' + file + '.ply'
         mesh_gt = trimesh.load(mesh_path, force='mesh')
-        pts = mesh_gt.sample(5000)
+        pts = mesh_gt.sample(10 ** 5)
         mesh = trimesh.Trimesh(vertices=pts)
         os.makedirs(os.path.dirname(save_path), exist_ok=True)
         mesh.export(save_path)
