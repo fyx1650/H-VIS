@@ -14,7 +14,7 @@
     "coef_mnfld": 200,
     "coef_nonmnfld": 0,
     "coef_near": 0,
-    "coef_ms": 4.5,
+    "coef_ms": 4,
     "coef_alpha": 10,
     "coef_normal": 0,
     "coef_eikonal": 5,

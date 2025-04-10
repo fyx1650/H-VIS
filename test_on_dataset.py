@@ -12,7 +12,7 @@ from trainer import Trainer
 from dataset.Dataset_3d import SDFDataset_3D
 from network import SDFNetwork, SIREN
 
-with open("setup.json") as load_en:
+with open("setup_dataset.json") as load_en:
     net_para = json.load(load_en)
 load_en.close()
 
@@ -133,7 +133,7 @@ if __name__ == '__main__':
         mesh_path = load_path + '/03_meshes/' + file + '.ply'
         save_path = load_path + '/04_pts_ply_test/' + file + '.ply'
         mesh_gt = trimesh.load(mesh_path, force='mesh')
-        pts = mesh_gt.sample(10 ** 5)
+        pts = mesh_gt.sample(5000)
         mesh = trimesh.Trimesh(vertices=pts)
         os.makedirs(os.path.dirname(save_path), exist_ok=True)
         mesh.export(save_path)
@@ -169,7 +169,7 @@ if __name__ == '__main__':
     for file in filelists:
         seed_everything(seed)
         mesh_path = load_path + '/03_meshes/' + file + '.ply'
-        pts_path = load_path + '/04_pts_ply_1e5/' + file + '.ply'
+        pts_path = load_path + '/04_pts_ply_test/' + file + '.ply'
 
         if file in filelists_1:
             net_para["Loss"]["coef_ms"] = 4.8
