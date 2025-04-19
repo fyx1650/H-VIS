@@ -64,9 +64,36 @@ l1
 vis
 hessian
 ```
-### Dataset 
-*make sure your dataset contains the "testset.txt" file which records all the names of ply files and replace the
-```$DATASET_NAME$``` and ```$DATASET_DIR$``` with the name and local path of your dataset.*
+### Dataset
+
+*Note*: The current code in ```test_on_dataset.py``` is designed specifically for the ABC, Thingi10k, and Famous datasets as 
+listed in the provided link. To run the code with your own dataset, you need to make the following modifications:
+
+*1.Ensure your dataset includes a testset.txt file:*
+
+This file should list all the point cloud file names that you want to test. Each file name should be on a new line 
+without extensions (e.g., cloud1, cloud2).
+
+*2.Update the dataset name and directory in the script:*
+
+Replace the placeholders ```$DATASET_NAME$``` and ```$DATASET_DIR$``` in the script with the actual name and the local
+path to your dataset. ```$DATASET_NAME$``` should be replaced with the name of your dataset folder (e.g., ```MyCustomDataset```).
+```$DATASET_DIR$``` should be replaced with the path where your dataset is stored locally (e.g., ```/path/to/my/custom/dataset```).
+
+3.Modify the ground truth file paths and extensions:
+
+Ensure that your dataset contains ground truth files (e.g., meshes for comparison). By default, the script assumes the 
+ground truth files are located in a folder called ```03_meshes``` and have a ```.ply``` extension.
+Update the folder name and file extension in lines 133 and 171 of ```test_on_dataset.py``` if your ground truth files 
+are located in a different folder or have a different file extension.
+
+Example: If your ground truth files are in a folder named ```ground_truth``` and have a ```.obj``` extension, modify the
+script like this:
+```
+mesh_path = load_path + '/ground_truth/' + file + '.obj'
+```
+Once you've made these changes, the script should be ready to run with your custom dataset.
+
 ```
 python test_on_dataset.py 
 --local_rank
