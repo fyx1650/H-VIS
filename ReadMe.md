@@ -74,13 +74,7 @@ listed in the provided link. To run the code with your own dataset, you need to 
 This file should list all the point cloud file names that you want to test. Each file name should be on a new line 
 without extensions (e.g., cloud1, cloud2).
 
-*2.Update the dataset name and directory in the script:*
-
-Replace the placeholders ```$DATASET_NAME$``` and ```$DATASET_DIR$``` in the script with the actual name and the local
-path to your dataset. ```$DATASET_NAME$``` should be replaced with the name of your dataset folder (e.g., ```MyCustomDataset```).
-```$DATASET_DIR$``` should be replaced with the path where your dataset is stored locally (e.g., ```/path/to/my/custom/dataset```).
-
-3.Modify the ground truth file paths and extensions:
+*2.Modify the ground truth file paths and extensions:*
 
 Ensure that your dataset contains ground truth files (e.g., meshes for comparison). By default, the script assumes the 
 ground truth files are located in a folder called ```03_meshes``` and have a ```.ply``` extension.
@@ -92,6 +86,14 @@ script like this:
 ```
 mesh_path = load_path + '/ground_truth/' + file + '.obj'
 ```
+
+*3.Update the dataset name and directory in the command line:*
+
+Replace the parameters ```$DATASET_NAME$``` and ```$DATASET_DIR$``` in the command line with the actual name and the local
+path to your dataset. ```$DATASET_NAME$``` should be replaced with the name of your dataset folder (e.g., ```MyCustomDataset```).
+```$DATASET_DIR$``` should be replaced with the path where your dataset is stored locally (e.g., ```/path/to/my/custom/dataset```).
+
+
 Once you've made these changes, the script should be ready to run with your custom dataset.
 
 ```
