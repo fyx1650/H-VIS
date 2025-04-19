@@ -87,9 +87,9 @@ script like this:
 mesh_path = load_path + '/ground_truth/' + file + '.obj'
 ```
 
-*3.Update the dataset name and directory in the command line:*
+*3.Update the dataset name and directory in the command lines:*
 
-Replace the parameters ```$DATASET_NAME$``` and ```$DATASET_DIR$``` in the command line with the actual name and the local
+Replace the parameters ```$DATASET_NAME$``` and ```$DATASET_DIR$``` in the following command lines with the actual name and the local
 path to your dataset. ```$DATASET_NAME$``` should be replaced with the name of your dataset folder (e.g., ```MyCustomDataset```).
 ```$DATASET_DIR$``` should be replaced with the path where your dataset is stored locally (e.g., ```/path/to/my/custom/dataset```).
 
