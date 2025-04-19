@@ -125,6 +125,7 @@ hessian
 │  main_sdf.py
 │  ReadMe.md
 │  setup.json
+│  setup_dataset.json
 │  test_on_dataset.py
 │  tpb_encoder.py
 │  trainer.py
@@ -212,6 +213,17 @@ the corresponding "E_..." should be set as true either.*)
 *space_scale*: the radius of bounding box of uniformed sampling points<br>
 ### MLP
 *activation*: choose from "sine", "relu", "softplus", "tanh"<br>
+
+## Result：
+There should be a ``checkpoints`` folder, a ``run`` folder, a ``validation`` folder and a ``log_ngp.txt`` file.
+### checkpoints
+This folder contains the files which record the model parameters.
+### run
+This folder contains the files which record the loss per iteration. You may check it with tensorboard or tensorboardX.
+### validation
+This folder contains the reconstruction results.
+### log_ngp
+This file records some information about the setting and training process.
 
 # Acknowledgements
 This code is referenced on [torch-ngp](https://github.com/ashawkey/torch-ngp), [POCO](https://github.com/valeoai/POCO) 
