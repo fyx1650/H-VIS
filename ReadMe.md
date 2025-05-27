@@ -1,5 +1,5 @@
 # H-VIS 
-Code of Paper 《High-Quality Neural Surface Reconstruction from Unoriented Point Clouds via Multilevel Tensor Product 
+Code of [Paper](https://link.springer.com/article/10.1007/s00371-025-03969-8) 《High-Quality Neural Surface Reconstruction from Unoriented Point Clouds via Multilevel Tensor Product 
 B-spline Hash Encoding and Viscosity Regularization》
 
 
